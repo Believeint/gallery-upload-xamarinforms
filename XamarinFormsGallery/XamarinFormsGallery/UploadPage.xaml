@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinFormsGallery.UploadPage"
+             Title="Upload Image">
+
+    <StackLayout Orientation="Vertical" Padding="20,20,20,0">
+        <Button x:Name="BrowseButton" BackgroundColor="Blue" TextColor="White" Text="Browse"/>
+        <Image x:Name="image" HeightRequest="100" WidthRequest="125" Source="xamarin_logo.png"/>
+        <StackLayout Orientation="Vertical" Padding="0,20,0,0">
+            <Entry x:Name="TittleEntry" Placeholder="Title" WidthRequest="300"/>
+            <Label x:Name="DateTimeEntry" WidthRequest="200"/>
+        </StackLayout>
+        <Button x:Name="UploadButton" Margin="0,20" BackgroundColor="Green" TextColor="White" Text="Save"/>
+    </StackLayout> 
+    
+</ContentPage>

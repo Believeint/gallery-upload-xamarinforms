@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinFormsGallery.MainPage"
+             xmlns:controls="clr-namespace:XamarinFormsGallery.Controle">
+
+    <StackLayout BackgroundColor="White" Padding="20, 0, 20, 0" VerticalOptions="StartAndExpand">
+        <Entry x:Name="SearchEntry" Placeholder="Search" Margin="0,5" WidthRequest="150"/>
+
+        <StackLayout Orientation="Horizontal" HeightRequest="400" Margin="0,5">
+            <controls:ImageGalleryGrid ColumnSpacing="5"
+                                       ItemTappedCommand="{Binding ItemTapCommand}"
+                                       ItemsSource="{Binding ParentModels}"
+                                       MaxColumns="{Binding MaxColumns}"
+                                       Padding="1"
+                                       RowSpacing="1"
+                                       TileHeight="{Binding TitleHeight}"
+                                       x:Name="customGrid">
+                <controls:ImageGalleryGrid.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="White" Padding="1,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Path}" HeightRequest="170" WidthRequest="220" Margin="0,4,0,0"/>
+                            <Label Grid.Row="1" HorizontalOptions="CenterAndExpand" FontSize="10" Text="{Binding Title}"
+                                   TextColor="Black" Margin="0,0,0,0" LineBreakMode="TailTruncation"/>
+                        </Grid>
+                    </DataTemplate>
+                </controls:ImageGalleryGrid.ItemTemplate>
+            </controls:ImageGalleryGrid>
+        </StackLayout>
+        <Button x:Name="UploadButton" Clicked="UploadClicked" VerticalOptions="EndAndExpand" FontAttributes="Bold" BackgroundColor="Blue" TextColor="White" Text="Upload new image"/>
+    </StackLayout>
+
+</ContentPage>
